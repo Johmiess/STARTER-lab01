@@ -12,6 +12,9 @@ int main(int argc, char *argv[]) {
 
     IntList list1, list2;
     int first = 0, second = 0, last = 0, initial_size;
+    
+    cout << "passed constructor" << endl;
+
 
     // append command line arguments to list1
     if (argc < 2) {
@@ -30,6 +33,8 @@ int main(int argc, char *argv[]) {
         if (i == initial_size)
             last = value;
     }
+
+    cout << "push back" << endl;
 
     // print and test methods for list1
     cout << "List 1: \n   ";
