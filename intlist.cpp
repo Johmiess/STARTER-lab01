@@ -88,6 +88,7 @@ int IntList::max() const {
 // returns average (arithmetic mean) of all values, or
 // 0 if list is empty
 double IntList::average() const {
+    if(!head) return 0;
     double total_val = 0;
     double total_count= 0;
     Node* temp = head; 
