@@ -74,6 +74,11 @@ int main(int argc, char *argv[]) {
     list2.push_front(1);
     list2.print();
     cout << endl;
+
+    cout << "fin print" << endl;
     // Write your own test code for other methods
+
+    list1 = list2;
+    list1.print();
     return 0;
 }
