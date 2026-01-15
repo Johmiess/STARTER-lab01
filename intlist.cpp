@@ -12,6 +12,7 @@ using std::cout;
 IntList::IntList(const IntList& source) {
     if(source.head == nullptr){
         head = nullptr;
+        tail = nullptr;
         return;
     }
     // 1 2 3 4
@@ -25,6 +26,7 @@ IntList::IntList(const IntList& source) {
     while(src){
         Node* new_node = new Node; 
         new_node -> info = src -> info;
+        new_node -> next = nullptr;
         // std::cout << new_node -> info << std::endl;
         last -> next = new_node;
         last = last -> next; 
@@ -36,12 +38,14 @@ IntList::IntList(const IntList& source) {
 
 // destructor deletes all nodes
 IntList::~IntList() {
+    if(head){
     Node* temp = head;
     while(temp){
         Node* to_del = temp;
         temp = temp -> next;
         delete to_del;
     }
+}
     head = nullptr;
     tail = nullptr;
 }

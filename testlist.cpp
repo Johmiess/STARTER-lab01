@@ -78,7 +78,11 @@ int main(int argc, char *argv[]) {
     cout << "fin print" << endl;
     // Write your own test code for other methods
 
-    list1 = list2;
+    list2 = list1;
+    cout << endl;
     list1.print();
+    cout << endl;
+    list2.print();
+
     return 0;
 }
