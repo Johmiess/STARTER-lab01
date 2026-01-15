@@ -25,10 +25,12 @@ IntList::IntList(const IntList& source) {
     while(src){
         Node* new_node = new Node; 
         new_node -> info = src -> info;
+        // std::cout << new_node -> info << std::endl;
         last -> next = new_node;
         last = last -> next; 
         src = src -> next;
     }
+    tail = last; 
 }
 
 
@@ -40,6 +42,8 @@ IntList::~IntList() {
         temp = temp -> next;
         delete to_del;
     }
+    head = nullptr;
+    tail = nullptr;
 }
 
 
@@ -110,14 +114,12 @@ void IntList::push_back(int value) {
     end -> info = value; 
     end -> next = nullptr;
     if(head){
-        Node* temp = head; 
-    while(temp -> next){    
-        temp = temp -> next; 
-    }
-    temp -> next = end; 
+    tail -> next = end; 
+    tail = end;
     }
     else{
     head = end;
+    tail = end;
     }
 }
 
@@ -136,13 +138,14 @@ int IntList::count() const {
 //Assignment operator should copy the list from the source
 //to this list, deleting/replacing any existing nodes
 IntList& IntList::operator=(const IntList& source){
-    IntList copy = IntList(source);
-    return copy;
+    *this = IntList(source);
+    return *this;
 }
 
 // constructor sets up empty list
 IntList::IntList(){
     head = nullptr;
+    tail = nullptr;
     //IMPLEMENT THIS 
 }
 
