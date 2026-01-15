@@ -152,9 +152,7 @@ IntList& IntList::operator=(const IntList& source){
     }
     head = nullptr;
     tail = nullptr;
-    print();
-    source.print();
-    std::cout << std::endl;
+
 
     if(source.head == nullptr){
         return *this;
@@ -165,12 +163,12 @@ IntList& IntList::operator=(const IntList& source){
     head -> next = nullptr;
     tail = head; // Fix: Update tail to point to the new node
     Node* src = source.head -> next;
-    print();
+
     while(src){
         push_back(src -> info);
         src = src -> next;
     }
-    print();
+
     return *this;
 }
 
